@@ -15,5 +15,10 @@ void EngineCommunicator::CreateChildProcess()
 	startInfo.hStdInput = stdinRd;
 	startInfo.hStdOutput = stdoutWr;
 	startInfo.hStdError = stdoutWr;
-	CreateProcess(applicationPath.c_str(), NULL, NULL, NULL, TRUE, NULL, NULL, NULL, &startInfo, &procInfo);
+	if (!CreateProcess(applicationPath.c_str(), NULL, NULL, NULL, TRUE, NULL, NULL, NULL, &startInfo, &procInfo)) {
+		cout << "Failure creating process " << GetLastError() << endl;
+		cin.get();
+		exit(1);
+	}
+	
 }
