@@ -10,6 +10,11 @@ EngineCommunicator::EngineCommunicator(string &applicationPath, Subject *subject
 	CreateChildProcess();
 }
 
+void EngineCommunicator::MovePiece()
+{
+	strategy->MakeMove();
+}
+
 void EngineCommunicator::update(Subject *subject)
 {
 	fen = subject->getFen();
