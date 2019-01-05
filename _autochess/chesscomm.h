@@ -2,14 +2,11 @@
 #define _chesscomm
 
 #include <Windows.h>
-#include <iostream>
-#include <string>
-
-using namespace std;
+#include "Observer.h"
 
 class MoveStrategy;
 
-class ChessCommunicator {
+class ChessCommunicator : public Observer {
 public:
 	virtual void MovePiece() = 0;
 };
@@ -18,6 +15,7 @@ class EngineCommunicator : public ChessCommunicator {
 public:
 	EngineCommunicator(MoveStrategy*, string&);
 	void MovePiece();
+	void update();
 private:
 	MoveStrategy* strategy;
 	string& applicationPath;
@@ -32,6 +30,7 @@ class GraphicalCommunicator : public ChessCommunicator {
 public:
 	GraphicalCommunicator(MoveStrategy*);
 	void MovePiece();
+	void update();
 private:
 	MoveStrategy* strategy;
 	string fen;
