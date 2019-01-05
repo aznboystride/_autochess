@@ -2,21 +2,24 @@
 #define _strategy
 
 class ChessCommunicator;
+
 class MoveStrategy {
 public:
-	void MakeMove();
+	virtual void MakeMove() = 0;
 };
 
-class MoveStrategyUCI {
+class MoveStrategyUCI: public MoveStrategy {
 public:
 	MoveStrategyUCI(ChessCommunicator*);
+	void MakeMove();
 private:
 	ChessCommunicator* communicator;
 };
 
-class MoveStrategyGraphical {
+class MoveStrategyGraphical: public MoveStrategy {
 public:
 	MoveStrategyGraphical(ChessCommunicator*);
+	void MakeMove();
 private:
 	ChessCommunicator* communicator;
 };

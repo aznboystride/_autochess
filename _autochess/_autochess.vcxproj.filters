@@ -18,5 +18,8 @@
     <ClInclude Include="strategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="chesscomm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
