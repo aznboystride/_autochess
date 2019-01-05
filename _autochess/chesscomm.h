@@ -6,6 +6,8 @@
 
 class MoveStrategy;
 
+class Subject;
+
 class ChessCommunicator : public Observer {
 public:
 	virtual void MovePiece() = 0;
@@ -15,7 +17,7 @@ class EngineCommunicator : public ChessCommunicator {
 public:
 	EngineCommunicator(MoveStrategy*, string&);
 	void MovePiece();
-	void update();
+	void update(Subject*);
 private:
 	MoveStrategy* strategy;
 	string& applicationPath;
@@ -30,7 +32,7 @@ class GraphicalCommunicator : public ChessCommunicator {
 public:
 	GraphicalCommunicator(MoveStrategy*);
 	void MovePiece();
-	void update();
+	void update(Subject*);
 private:
 	MoveStrategy* strategy;
 	string fen;

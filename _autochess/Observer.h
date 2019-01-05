@@ -2,15 +2,17 @@
 #define _observer
 
 #include <vector>
+#include <iterator>
 #include <iostream>
 #include <string>
 using namespace std;
 
 class ChessCommunicator;
+class Subject;
 
 class Observer {
 public:
-	virtual void update() = 0;
+	virtual void update(Subject*) = 0;
 protected:
 	ChessCommunicator* communicator;
 };
@@ -22,7 +24,7 @@ public:
 	void attach(Observer*);
 	void notifyAllObservers();
 private:
-	vector<Observer> observers;
+	vector<Observer*> observers;
 	string fen;
 };
 #endif
