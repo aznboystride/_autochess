@@ -22,6 +22,8 @@ private:
 	MoveStrategy* strategy;
 	string& applicationPath;
 	string fen;
+
+	HANDLE stdinWr, stdinRd, stdoutWr, stdoutRd;
 	void CreateChildProcess();
 	void CreateChildPipes();
 	string ReadFromPipe();

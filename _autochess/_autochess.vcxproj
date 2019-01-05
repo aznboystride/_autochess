@@ -120,6 +120,7 @@
     <ClInclude Include="strategy.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="chesscomm.cpp" />
     <ClCompile Include="Observer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
