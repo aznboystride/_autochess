@@ -1,9 +1,9 @@
 #include "chesscomm.h"
 
-EngineCommunicator::EngineCommunicator(MoveStrategy *strategy, string &applicationPath)
+EngineCommunicator::EngineCommunicator(string &applicationPath)
 {
 	this->applicationPath = applicationPath;
-	this->strategy = strategy;
+	this->strategy = new MoveStrategyUCI(this);
 	CreateChildPipes();
 	CreateChildProcess();
 }

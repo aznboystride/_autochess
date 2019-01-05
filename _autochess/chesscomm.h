@@ -18,7 +18,7 @@ public:
 
 class EngineCommunicator : public ChessCommunicator {
 public:
-	EngineCommunicator(MoveStrategy*, string&);
+	EngineCommunicator(string&);
 	void MovePiece();
 	void update(Subject*);
 private:
@@ -35,7 +35,7 @@ private:
 
 class GraphicalCommunicator : public ChessCommunicator {
 public:
-	GraphicalCommunicator(MoveStrategy*);
+	GraphicalCommunicator();
 	void MovePiece();
 	void update(Subject*);
 private:
