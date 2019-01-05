@@ -1,8 +1,10 @@
 #include "chesscomm.h"
 
-EngineCommunicator::EngineCommunicator(string &applicationPath)
+EngineCommunicator::EngineCommunicator(string &applicationPath, Subject *subject)
 {
 	this->applicationPath = applicationPath;
+	this->subject = subject;
+	this->subject->attach(this);
 	this->strategy = new MoveStrategyUCI(this);
 	CreateChildPipes();
 	CreateChildProcess();
@@ -12,6 +14,11 @@ void EngineCommunicator::update(Subject *subject)
 {
 	fen = subject->getFen();
 	MovePiece();
+}
+
+string EngineCommunicator::getFen()
+{
+	return fen;
 }
 
 void EngineCommunicator::CreateChildProcess()
@@ -94,8 +101,15 @@ void EngineCommunicator::WriteToPipe(string& str)
 	}
 }
 
-GraphicalCommunicator::GraphicalCommunicator()
+Subject * EngineCommunicator::getSubject()
 {
+	return subject;
+}
+
+GraphicalCommunicator::GraphicalCommunicator(Subject* subject)
+{
+	this->subject = subject;
+	this->subject->attach(this);
 	strategy = new MoveStrategyGraphical(this);
 }
 
@@ -103,4 +117,14 @@ void GraphicalCommunicator::update(Subject *subject)
 {
 	fen = subject->getFen();
 	MovePiece();
+}
+
+string GraphicalCommunicator::getFen()
+{
+	return fen;
+}
+
+Subject * GraphicalCommunicator::getSubject()
+{
+	return subject;
 }

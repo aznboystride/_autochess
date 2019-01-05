@@ -1,6 +1,7 @@
 #ifndef _strategy
 #define _strategy
 
+#include "chesscomm.h"
 class ChessCommunicator;
 
 class MoveStrategy {

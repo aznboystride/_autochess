@@ -3,6 +3,7 @@
 
 #include <Windows.h>
 #include "Observer.h"
+#include "strategy.h"
 
 #define BUFFSIZE 4096
 
@@ -17,28 +18,34 @@ public:
 
 class EngineCommunicator : public ChessCommunicator {
 public:
-	EngineCommunicator(string&);
+	EngineCommunicator(string&, Subject*);
 	void MovePiece();
 	void update(Subject*);
+	string getFen();
+	string ReadFromPipe();
+	void WriteToPipe(string&);
+	Subject* getSubject();
 private:
 	MoveStrategy* strategy;
+	Subject* subject;
 	string applicationPath;
 	string fen;
 
 	HANDLE stdinWr, stdinRd, stdoutWr, stdoutRd;
 	void CreateChildProcess();
 	void CreateChildPipes();
-	string ReadFromPipe();
-	void WriteToPipe(string&);
 };
 
 class GraphicalCommunicator : public ChessCommunicator {
 public:
-	GraphicalCommunicator();
+	GraphicalCommunicator(Subject*);
 	void MovePiece();
 	void update(Subject*);
+	string getFen();
+	Subject* getSubject();
 private:
 	MoveStrategy* strategy;
+	Subject* subject;
 	string fen;
 };
 #endif

@@ -5,6 +5,8 @@
 #include <iterator>
 #include <iostream>
 #include <string>
+#include "chesscomm.h"
+
 using namespace std;
 
 class ChessCommunicator;
