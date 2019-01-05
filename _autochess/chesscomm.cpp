@@ -59,3 +59,17 @@ void EngineCommunicator::CreateChildPipes()
 		exit(1);
 	}
 }
+
+string EngineCommunicator::ReadFromPipe()
+{
+	DWORD bytesWritten;
+	BOOL bSuccess = FALSE;
+	CHAR buff[BUFFSIZE];
+	bSuccess = ReadFile(stdoutRd, buff, BUFFSIZE, &bytesWritten, NULL);
+	if (!bSuccess) {
+		cout << "Failure to read from stdoutRd " << GetLastError() << endl;
+		cin.get();
+		exit(1);
+	}
+	return string(buff);
+}

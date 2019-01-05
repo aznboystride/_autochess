@@ -4,6 +4,9 @@
 #include <Windows.h>
 #include "Observer.h"
 
+#ifndef BUFFSIZE
+#define BUFFSIZE 4096
+
 class MoveStrategy;
 
 class Subject;
