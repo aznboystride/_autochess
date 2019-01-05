@@ -93,3 +93,14 @@ void EngineCommunicator::WriteToPipe(string& str)
 		exit(1);
 	}
 }
+
+GraphicalCommunicator::GraphicalCommunicator()
+{
+	strategy = new MoveStrategyGraphical(this);
+}
+
+void GraphicalCommunicator::update(Subject *subject)
+{
+	fen = subject->getFen();
+	MovePiece();
+}
