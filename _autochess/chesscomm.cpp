@@ -1,5 +1,13 @@
 #include "chesscomm.h"
 
+EngineCommunicator::EngineCommunicator(MoveStrategy *strategy, string &applicationPath)
+{
+	this->applicationPath = applicationPath;
+	this->strategy = strategy;
+	CreateChildPipes();
+	CreateChildProcess();
+}
+
 void EngineCommunicator::update(Subject *subject)
 {
 	fen = subject->getFen();

@@ -23,7 +23,7 @@ public:
 	void update(Subject*);
 private:
 	MoveStrategy* strategy;
-	string& applicationPath;
+	string applicationPath;
 	string fen;
 
 	HANDLE stdinWr, stdinRd, stdoutWr, stdoutRd;
