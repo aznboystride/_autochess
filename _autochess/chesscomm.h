@@ -30,7 +30,7 @@ private:
 	void CreateChildProcess();
 	void CreateChildPipes();
 	string ReadFromPipe();
-	void WriteToPipe();
+	void WriteToPipe(string&);
 };
 
 class GraphicalCommunicator : public ChessCommunicator {

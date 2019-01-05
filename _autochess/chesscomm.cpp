@@ -73,3 +73,15 @@ string EngineCommunicator::ReadFromPipe()
 	}
 	return string(buff);
 }
+
+void EngineCommunicator::WriteToPipe(string& str)
+{
+	DWORD bytesWritten;
+	BOOL bSuccess = FALSE;
+	bSuccess = WriteFile(stdinWr, str.c_str(), BUFFSIZE, &bytesWritten, NULL);
+	if (!bSuccess) {
+		cout << "Failure to writefile to stdinWr " << GetLastError() << endl;
+		cin.get();
+		exit(1);
+	}
+}
