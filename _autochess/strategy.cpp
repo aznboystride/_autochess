@@ -13,3 +13,13 @@ void MoveStrategyUCI::MakeMove()
 	string bestMove = com->ReadFromPipe();
 	com->getSubject()->setFen(bestMove);
 }
+
+MoveStrategyGraphical::MoveStrategyGraphical(ChessCommunicator *communicator)
+{
+	this->communicator = communicator;
+}
+
+void MoveStrategyGraphical::MakeMove()
+{
+	cout << "Made Graphical Move" << endl;
+}
