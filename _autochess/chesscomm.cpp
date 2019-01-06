@@ -1,4 +1,4 @@
-#include "chesscomm.h"
+#include "strategy.h"
 
 EngineCommunicator::EngineCommunicator(string &applicationPath, Subject *subject)
 {

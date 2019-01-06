@@ -1,15 +1,12 @@
-#ifndef _chesscomm 
+#ifndef _chesscomm
 #define _chesscomm
 
 #include <Windows.h>
 #include "Observer.h"
-#include "strategy.h"
 
 #define BUFFSIZE 4096
 
 class MoveStrategy;
-
-class Subject;
 
 class ChessCommunicator : public Observer {
 public:

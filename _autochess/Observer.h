@@ -5,12 +5,11 @@
 #include <iterator>
 #include <iostream>
 #include <string>
-#include "chesscomm.h"
 
 using namespace std;
 
-class ChessCommunicator;
 class Subject;
+class ChessCommunicator;
 
 class Observer {
 public:
