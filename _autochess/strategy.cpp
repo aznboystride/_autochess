@@ -21,5 +21,6 @@ MoveStrategyGraphical::MoveStrategyGraphical(ChessCommunicator *communicator)
 
 void MoveStrategyGraphical::MakeMove()
 {
-	cout << "Made Graphical Move" << endl;
+	GraphicalCommunicator* comm = (GraphicalCommunicator*)communicator;
+	cout << "Made Graphical Move: " << comm->getFen() << endl;
 }

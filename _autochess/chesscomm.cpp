@@ -125,6 +125,19 @@ void GraphicalCommunicator::MovePiece()
 	strategy->MakeMove();
 }
 
+void GraphicalCommunicator::update(Subject *subject)
+{
+	if (fen != subject->getFen()) {
+		fen = subject->getFen();
+		MovePiece();
+	}
+}
+
+string GraphicalCommunicator::getFen()
+{
+	return fen;
+}
+
 Subject * GraphicalCommunicator::getSubject()
 {
 	return subject;
