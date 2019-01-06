@@ -1,4 +1,4 @@
-#ifndef _chesscomm
+#ifndef _chesscomm 
 #define _chesscomm
 
 #include <Windows.h>
